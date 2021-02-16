@@ -20,7 +20,6 @@ while True:
     lina = int(Json1['result'])
     busd = int(Json2['result'])
     pool_price = round(busd/lina, 3)
-    print(pool_price)
 
     r = cmc.cryptocurrency_info(symbol='lina')
     description = r.data['LINA']['description']
@@ -28,6 +27,8 @@ while True:
     price = float(strings[strings.index('USD') - 1])
     price = round(price, 3)
 
-    bot.send_message(chat_id="@defi_alert_milleniz", text="pool price : {}\ncoin price : {}".format(pool_price, price))
+    dif = price / pool_price * 100 - 100
+    dif = round(dif, 2)
+    bot.send_message(chat_id="@defi_alert_milleniz", text="pool price : {}\ncoin price : {}\n 차이 : {}%".format(pool_price, price, dif))
     time.sleep(300)
 
