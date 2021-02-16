@@ -29,6 +29,7 @@ while True:
 
     dif = price / pool_price * 100 - 100
     dif = round(dif, 2)
-    bot.send_message(chat_id="@defi_alert_milleniz", text="pool price : {}\ncoin price(CoinMarketCap) : {}\n 차이 : {}%".format(pool_price, price, dif))
+    if (dif > 10.0 or dif < -10.0) :
+        bot.send_message(chat_id="@defi_alert_milleniz", text="pool price : {}\ncoin price(CoinMarketCap) : {}\n 차이 : {}%".format(pool_price, price, dif))
     time.sleep(300)
 
