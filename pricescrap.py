@@ -47,7 +47,7 @@ while True:
         dif = round(diffs[token]*100, 2)
         text = text + "\n{} : {}$ | {}$ | {}%갭 ".format(token, price_binance[token], price_linear[token], dif)
         if dif >= 1.0:
-            text = text + "!!!!!!!!!!!!!!!!"
+            text = text + "★★★★★★★★★"
     bot.send_message(chat_id="@defi_alert_milleniz", text=text)
     time.sleep(60)
     
