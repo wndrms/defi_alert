@@ -46,8 +46,12 @@ while True:
     for token in diffs:
         dif = round(diffs[token]*100, 2)
         text = text + "\n{} : {}$ | {}$ | {}%갭 ".format(token, price_binance[token], price_linear[token], dif)
-        if dif >= 1.0:
-            text = text + "🚀🚀🚀"
+        if dif > 0:
+            text = text + "📈"
+            if dif >= 1.0:
+                text = text + "🚀🚀🚀"
+        else :
+            text = text + "📉"
     bot.send_message(chat_id="@defi_alert_milleniz", text=text)
     time.sleep(60)
     
