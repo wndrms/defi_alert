@@ -50,15 +50,21 @@ while True:
             text = text + "📈"
             if dif >= 0.5:
                 if dif >= 1.0:
-                    if dif >= 1.5:
-                        if dif >= 2.0:
-                            text = text + "💸💸💸"
+                    if dif >= 1.3:
+                        if dif >= 1.6:
+                            if dif >= 2.0:
+                                if dif >= 2.5:
+                                    text = text + "💸💸💸"
+                                else:
+                                    text = text + "💵💵💵"
+                            else:
+                                text = text + "🚀🚀🚀"
                         else :
-                            text = text + "🚀🚀🚀"
+                            text = text + "🚀🚀"
                     else :
-                        text = text + "🚀🚀"
+                        text = text + "🚀"
                 else :
-                    text = text + "🚀"
+                    text = text + "👀"
         else :
             text = text + "📉"
     bot.send_message(chat_id="@defi_alert_milleniz", text=text)
