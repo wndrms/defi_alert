@@ -12,9 +12,9 @@ url = "https://exchange.linear.finance/?token=l{}"
 url2 = "https://api.binance.com/api/v3/ticker/price?symbol={}BUSD"
 
 while True:
-    price_linear = {'TRX':0, 'ADA':0, 'LINK':0, 'XLM':0, 'BNB':0, 'YFI':0, 'DOT':0}
-    price_binance = {'TRX':0, 'ADA':0, 'LINK':0, 'XLM':0, 'BNB':0, 'YFI':0, 'DOT':0}
-    diffs = {'TRX':0, 'ADA':0, 'LINK':0, 'XLM':0, 'BNB':0, 'YFI':0, 'DOT':0}
+    price_linear = {'ADA':0, 'BNB':0, 'DOT':0, 'ETH':0, 'LINK':0, 'TRX':0, 'XLM':0, 'YFI':0}
+    price_binance = {'ADA':0, 'BNB':0, 'DOT':0, 'ETH':0, 'LINK':0, 'TRX':0, 'XLM':0, 'YFI':0}
+    diffs = {'ADA':0, 'BNB':0, 'DOT':0, 'ETH':0, 'LINK':0, 'TRX':0, 'XLM':0, 'YFI':0}
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
@@ -48,10 +48,19 @@ while True:
         text = text + "\n{} : {}$ | {}$ | {}%갭 ".format(token, price_binance[token], price_linear[token], dif)
         if dif > 0:
             text = text + "📈"
-            if dif >= 1.0:
-                text = text + "🚀🚀🚀"
+            if dif >= 0.5:
+                if dif >= 1.0:
+                    if dif >= 1.5:
+                        if dif >= 2.0:
+                            text = text + "💸💸💸"
+                        else :
+                            text = text + "🚀🚀🚀"
+                    else :
+                        text = text + "🚀🚀"
+                else :
+                    text = text + "🚀"
         else :
             text = text + "📉"
     bot.send_message(chat_id="@defi_alert_milleniz", text=text)
-    time.sleep(60)
+    time.sleep(15)
     
