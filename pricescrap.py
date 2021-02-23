@@ -51,7 +51,10 @@ while True:
                             if dif >= 1.6:
                                 if dif >= 2.0:
                                     if dif >= 2.5:
-                                        text = text + "💸💸💸"
+                                        if dif >= 5.0:
+                                            text = text + "🔥🔥🔥"
+                                        else:
+                                            text = text + "💸💸💸"
                                     else:
                                         text = text + "💵💵💵"
                                 else:
@@ -71,5 +74,5 @@ while True:
         print(e)
     finally:
         driver.quit()
-        time.sleep(10)
+        time.sleep(5)
 
